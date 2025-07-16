@@ -1,6 +1,6 @@
-# RAG (Retrieval-Augmented Generation) Task
+# Langchain RAG Application
 
-A project implementing Retrieval-Augmented Generation using LangChain, with both FastAPI and Streamlit interfaces.
+A comprehensive Retrieval-Augmented Generation (RAG) system built with LangChain, featuring a FastAPI backend and Streamlit frontend for document processing and question-answering.
 
 ## Overview
 
@@ -38,25 +38,36 @@ This project demonstrates how to implement a RAG system using LangChain, which c
 
 ## Running the Application
 
-### FastAPI Server
+### FastAPI Backend Server
 
-To run the FastAPI server using uvicorn:
+To run the FastAPI backend server using uvicorn:
+
 ```bash
-# Development mode (auto-reload)
-uvicorn fastapi_app:app --reload
+# Development mode with auto-reload
+uvicorn fastapi_app:app --reload --host 0.0.0.0 --port 8000
 
-# Production mode
+# Production mode (no auto-reload)
 uvicorn fastapi_app:app --host 0.0.0.0 --port 8000
+
+# With multiple workers (production)
+# uvicorn fastapi_app:app --host 0.0.0.0 --port 8000 --workers 4
 ```
-The server will be available at `http://localhost:8000`
+
+The API server will be available at `http://localhost:8000`
 
 ### Streamlit Frontend
 
-To run the Streamlit frontend:
+To run the Streamlit frontend application:
+
 ```bash
+# Basic run
 streamlit run frontend_app.py
+
+# Or with specific port
+# streamlit run frontend_app.py --server.port=8501
 ```
-The frontend will be available at `http://localhost:8501`
+
+The frontend will be available at `http://localhost:8501` by default
 
 ### API Documentation
 
@@ -68,44 +79,70 @@ Once the FastAPI server is running, you can access the API documentation at:
 
 ### Document Ingestion
 
-Upload documents through the Streamlit interface or use the FastAPI endpoint:
-```python
-from doc_processor import DocumentProcessor
+1. **Using Streamlit Interface**:
+   - Launch the Streamlit frontend
+   - Use the document uploader to upload files
+   - The system will automatically process and index the documents
 
-doc_processor = DocumentProcessor()
-doc_processor.process_directory("path/to/documents")
+2. **Using FastAPI Endpoint**:
+   ```python
+   import requests
+   
+   # Upload and process document
+   with open("path/to/your/document.pdf", "rb") as f:
+       files = {"file": ("document.pdf", f, "application/pdf")}
+       response = requests.post("http://localhost:8000/upload/", files=files)
+   print(response.json())
+   ```
+
+### Querying the System
+
+1. **Using Streamlit Interface**:
+   - Enter your question in the chat interface
+   - View the response along with source documents
+
+2. **Using FastAPI Endpoint**:
+   ```python
+   import requests
+   
+   # Query the system
+   response = requests.post(
+       "http://localhost:8000/query/",
+       json={
+           "query": "What is the main topic discussed in the documents?",
+           "chat_history": []  # Optional: include previous messages for context
+       }
+   )
+   print(response.json())
+   ```
+
+### Environment Variables
+
+Create a `.env` file with the following variables:
+
 ```
-
-### Querying
-
-Use the Streamlit interface or make requests to the FastAPI endpoint:
-```python
-# FastAPI example
-import requests
-
-response = requests.post(
-    "http://localhost:8000/query",
-    json={"query": "What is the main topic discussed in the documents?"}
-)
-print(response.json())
+OPENAI_API_KEY=your_openai_api_key
+EMBEDDING_MODEL=text-embedding-3-small  # or your preferred embedding model
+MODEL_NAME=gpt-3.5-turbo  # or your preferred LLM model
 ```
 
 ## Project Structure
 
 ```
-rag_task-1/
-├── .env                     # Environment variables
-├── __init__.py              # Package initialization
-├── data_models.py           # Data models and schemas
-├── database_vec.py          # Vector database operations
-├── doc_processor.py         # Document processing logic
-├── fastapi_app.py           # FastAPI backend server
-├── frontend_app.py          # Streamlit frontend application
-├── __pycache__/             # Python bytecode cache
-├── chat_history/            # Chat history storage
-├── uploads/                 # Document upload directory
-├── requirements.txt         # Project dependencies
-└── README.md               # Project documentation
+Langchain-RAG-Application/
+├── .env                    # Environment variables
+├── .gitignore              # Git ignore file
+├── README.md               # Project documentation
+├── __init__.py             # Package initialization
+├── __pycache__/            # Python bytecode cache
+├── chat_history/           # Directory for storing chat history
+├── data_models.py          # Data models and schemas
+├── database_vec.py         # Vector database operations and management
+├── doc_processor.py        # Document processing and chunking logic
+├── fastapi_app.py          # FastAPI application and endpoints
+├── frontend_app.py         # Streamlit frontend application
+├── requirements.txt        # Python dependencies
+└── uploads/                # Directory for uploaded documents
 ```
 
 ## Contributing
