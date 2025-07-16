@@ -1,0 +1,51 @@
+{
+  "conversation_id": "f8d16ad5-db71-4b1c-b288-4a3601f00bf0",
+  "timestamp": "2025-07-16T15:49:30.511782",
+  "messages": [
+    {
+      "role": "user",
+      "content": "importance of HR policy"
+    },
+    {
+      "role": "assistant",
+      "content": "According to Document 4, Page/Slide: Unknown, of the PDF document \"IIA HR Policy.pdf\", the importance of HR policy is as follows:\n\n\"HR Policy is a statement of strategies on HR functions and for developing the standards of practices, behavior and boundaries to meet specific goals. Not only it caters for running of an organization on successful business, it also paves the way to achieve its’ goal, as a natural culmination of activities.\"\n\nIt further states that HR policy:\n\n* Focuses on employees to have clear expectations on work requirements, compensation, welfare, and career development\n* Sets clear and specific standards, procedures, and a framework to spot and address deviations and violations of these standards\n* Eliminates adhocism on employees’ related issues\n* Provides direction in the growth of the organization in general, and management of employees in particular\n* Enables clarity and norming of practices on various issues related to HR management\n* Works as a guide to standardization on various aspects of quality services, skill development, and performance appraisal through system and processes.\n\nOverall, the HR policy provides a detailed layout of format for best practices in human resource development, enabling a healthy work environment and promoting faith in HR practices for required consideration for compensation and promotions. (Source: Document 4, Page/Slide: Unknown, IIA HR Policy.pdf)",
+      "sources": [
+        {
+          "title": "IIA HR Policy.pdf",
+          "page": 6.0,
+          "document_id": "cba892a0-dea5-4fb3-a7ba-69529dc21826",
+          "file_type": "PDF",
+          "snippet": "[Document Type: PDF]\nIIA HR POLICY REVISION 1.1  10  \nFor current employees, confirmed falsification of criminal history, required \neducational credentials or professional licenses/certificates may re..."
+        },
+        {
+          "title": "IIA HR Policy.pdf",
+          "page": 9.0,
+          "document_id": "cba892a0-dea5-4fb3-a7ba-69529dc21826",
+          "file_type": "PDF",
+          "snippet": "[Document Type: PDF]\nIIA HR POLICY REVISION 1.1  13  \n7.1 Remuneration Policy \nIIA seeks to compensate all its employees with fairness for following purpose \nThe remuneration and benefit policy attemp..."
+        },
+        {
+          "title": "IIA HR Policy.pdf",
+          "page": 5.0,
+          "document_id": "cba892a0-dea5-4fb3-a7ba-69529dc21826",
+          "file_type": "PDF",
+          "snippet": "[Document Type: PDF]\nIIA HR POLICY REVISION 1.1  9  \ng. Verification of character and antecedent-  It will include: \n✓ Verification of Academic credentials through relevant establishment/institute/boa..."
+        },
+        {
+          "title": "IIA HR Policy.pdf",
+          "page": "Unknown",
+          "document_id": "cba892a0-dea5-4fb3-a7ba-69529dc21826",
+          "file_type": "PDF",
+          "snippet": "[Document Type: PDF]\nIIA HR POLICY REVISION 1.1                                                                                  4  \n1. Importance of HR Policy  \nHR Policy is a statement of strategies..."
+        },
+        {
+          "title": "IIA HR Policy.pdf",
+          "page": 21.0,
+          "document_id": "cba892a0-dea5-4fb3-a7ba-69529dc21826",
+          "file_type": "PDF",
+          "snippet": "[Document Type: PDF]\nIIA HR POLICY REVISION 1.1  25  \nher/his statement recorded (“Statement of Allegation”). The Complainant can produce \ncorroborative material with a documentary, oral material, etc..."
+        }
+      ]
+    }
+  ]
+}
